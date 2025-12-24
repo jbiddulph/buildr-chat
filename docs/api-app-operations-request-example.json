@@ -1,0 +1,44 @@
+{
+  "appId": "23357099-6469-440c-81cb-33f0c0e104e1",
+  "accessToken": "YOUR_USER_ACCESS_TOKEN_HERE",
+  "chatMessageId": "optional-chat-message-id",
+  "operationJson": {
+    "intent": "create_one_page_website",
+    "operations": [
+      {
+        "type": "create_page",
+        "slug": "company_one_page_site",
+        "target": "company_one_page_site",
+        "title": "Company One Page Site",
+        "details": {
+          "description": "A simple one-page website for the company BIDDUPLH",
+          "sections": [
+            {
+              "name": "header",
+              "content": {
+                "company_name": "BIDDUPLH",
+                "owner_name": "John Biddulph",
+                "website": "www.jbiddulph.com"
+              }
+            },
+            {
+              "name": "portfolio",
+              "content": [
+                {
+                  "name": "Zap Task",
+                  "description": "A basic Jira-like task management application"
+                },
+                {
+                  "name": "Dog Healthy",
+                  "url": "www.doghelathy.uk",
+                  "description": "Add information about your dog. Simple and straightforward."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+

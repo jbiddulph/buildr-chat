@@ -1,0 +1,29 @@
+{
+  "mcpServers": {
+    "supabase": {
+      "url": "http://127.0.0.1:54321/mcp"
+    },
+    "vercel": {
+      "url": "https://mcp.vercel.com"
+    },
+    "github": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github",
+        "--access-token",
+        "${GITHUB_TOKEN}"
+      ]
+    },
+    "vercel1": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@vercel/mcp-server-vercel@latest",
+        "--access-token",
+        "${VERCEL_TOKEN}"
+      ]
+    }
+  }
+}
+
