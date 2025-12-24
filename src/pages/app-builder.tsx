@@ -463,12 +463,25 @@ export default function AppBuilderPage() {
         }),
       });
 
-      const json = (await response.json()) as {
+      // Check if response has content before parsing JSON
+      const responseText = await response.text();
+      let json: {
         ok: boolean;
         buildRequestId?: string;
         isNew?: boolean;
         error?: string;
       };
+      
+      if (!responseText || responseText.trim() === "") {
+        throw new Error("Empty response from server. Check API logs.");
+      }
+      
+      try {
+        json = JSON.parse(responseText);
+      } catch (parseError) {
+        console.error("Failed to parse JSON:", responseText);
+        throw new Error(`Invalid JSON response: ${responseText.substring(0, 200)}`);
+      }
 
       if (!response.ok || !json.ok) {
         setError(json.error ?? "Failed to send message");
