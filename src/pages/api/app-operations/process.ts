@@ -5,10 +5,14 @@ import {
   type Operation,
 } from "@/lib/operationValidator";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const serviceRoleKey =
   process.env.NEXT_PUBLIC_SUPABASE_SECRET ||
-  process.env.SUPABASE_SERVICE_ROLE_KEY!;
+  process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+if (!supabaseUrl) {
+  throw new Error("NEXT_PUBLIC_SUPABASE_URL is not set");
+}
 
 if (!serviceRoleKey) {
   throw new Error(
